@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Strike Information</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5adc0ff7-c40d-4887-a944-e5b5e0372036" class="page sans"><header><h1 class="page-title">Strike Information</h1></header><div class="page-body"><p id="38e8dce7-bdd5-4834-b9f0-d999be359872" class="">This is a collection of information I heard at <a href="https://www.youarethenewschool.com/strikeschool">strike school</a> at Lang and from the <a href="https://www.youarethenewschool.com">bargaining website</a>. This is a live document that will be updated. Please reach out to me at 973.382.5712 if there is anything pertinent missing.</p><p id="a406c583-6138-4382-8776-ab09e57fbad5" class="">
+</p><p id="8b20a0e8-11d6-401e-877f-2486764353d3" class=""><strong><mark class="highlight-yellow">Information that might surprise (and enrage) you:</mark></strong><div class="indented"><ol type="1" id="94a4aa83-743a-4d32-9822-d3c720574342" class="numbered-list" start="1"><li>The bargaining team have been communicating with a law firm hired by TNS. The administration isn’t even showing up at the table. It means the university would rather spend tens of thousands of dollars on outside legal counsel than agree to the raises part-time faculty deserve. [<a href="https://www.youarethenewschool.com/faq-the-bargaining-process">source</a>]</li></ol><ol type="1" id="86ec6e85-196b-4e8c-8774-6c54ea113989" class="numbered-list" start="2"><li>In the duration of bargaining, the university proposed taking away paid sick leave days which would be <strong>violating</strong> NY State Law. TNS states that they respect their part-time faculty but nothing about their bargaining process has indicated the same. Be aware of that as you read the mass emails from TNS admin. [<a href="https://www.youarethenewschool.com/bargaining-blog/bargaining-session-12">source</a>]</li></ol><ol type="1" id="65b70ca6-5cd1-4b0b-abbc-8f5e37e2bed5" class="numbered-list" start="3"><li>part-time faculty’s current contract has loopholes that mean their health insurance can increase. In 2021, (yes, when COVID-19 spread was at its peak) TNS drastically hiked out-of-pocket medical care costs for part-time faculty.</li></ol><ol type="1" id="4296c8d0-686f-41bf-81ed-394c48969906" class="numbered-list" start="4"><li>part-time faculty only get paid for contact hours aka hours they spend on campus. They don’t get paid for course prep, grading, meeting students 1-1 and much more.</li></ol><ol type="1" id="5fdf82cc-ba4a-49b1-a10a-3fd73158c250" class="numbered-list" start="5"><li>I make more money as a student worker (~$1000/per month) than my part-time faculty (~$800/month).</li></ol></div></p><p id="8a670adc-6665-4113-a723-2cf5aea4b673" class="">
+</p><p id="32521744-6b50-4d7e-b408-80d5e3c18a59" class=""><strong><mark class="highlight-yellow">What happens in the event of a strike?</mark></strong></p><p id="9d18dd0e-103d-4dbe-8bca-dab25d418c4c" class="">If part-time faculty strike, all classes (even online classes) taught by part-time faculty will cease for the duration of the strike. [<a href="https://www.youarethenewschool.com/faq-going-on-strike">FAQs</a>]</p><p id="08302735-0615-4270-9fb7-74c2b9fb3382" class="">
+</p><p id="ef29a170-49b4-486f-95db-6788ca8befd5" class=""><strong><mark class="highlight-yellow">What do we as TNS students do?</mark></strong></p><p id="db1f95c3-6702-473e-99f0-839f01898cf9" class="">Strength lies in numbers and we are a LOT of people, friends.<div class="indented"><p id="1d308671-e5ce-45ac-9c5f-c88a2877c185" class=""><span style="border-bottom:0.05em solid">THE BARE MINIMUM</span></p><ol type="1" id="f7cc3115-ad63-46d9-8b67-4d78fde04499" class="numbered-list" start="1"><li><mark class="highlight-red">UNLESS UNAVOIDABLE, DO NOT CROSS THE PICKET LINE. JOIN IT</mark></li></ol><ol type="1" id="9c077106-9680-4d05-aa1a-94b38e0d6c17" class="numbered-list" start="2"><li>Do not tell the administration whether your faculty are participating in the strike</li></ol><ol type="1" id="18c10bcf-54bc-469b-b173-956cf94f7d00" class="numbered-list" start="3"><li>Email the school [<a href="https://docs.google.com/document/d/145X2Ot6v2wN8kdEwgVpbXCnYZWf1-UunKS5Dv7Ncv_M/edit">template provided</a>]</li></ol><ol type="1" id="bc39751d-c10a-473b-9140-14c0167f2c41" class="numbered-list" start="4"><li>Wear a button → actively show your support </li></ol><p id="0532934f-7e4b-4f65-b20c-89b408f46c32" class=""><span style="border-bottom:0.05em solid">IF YOU WANT TO GET MORE INVOLVED</span></p><ol type="1" id="aa202222-22ac-44da-b738-314b43d38586" class="numbered-list" start="1"><li>Get your parents to email the school<p id="f0aaf982-e533-4a84-851a-89282dad653c" class="">[TNS takes their “source of income” much more seriously] </p></li></ol><ol type="1" id="862e394c-a36e-4ecf-9d50-0b4fc899f4d0" class="numbered-list" start="2"><li>Urge professors who are still holding classes in person to shift them to zoom or cancel them</li></ol><ol type="1" id="1b665381-f677-47a6-a321-3db96d11ca50" class="numbered-list" start="3"><li>Do not attend your classes (preferably even zoom classes). </li></ol><ol type="1" id="d78c4713-70e7-4166-8b3e-7006851aa5a4" class="numbered-list" start="4"><li>Show your support for our part-time faculty by joining them at the picket line. </li></ol><ol type="1" id="79e58851-e854-4314-b2db-d477d77b77cc" class="numbered-list" start="5"><li>Tell your friends. Spread the word. Strength in numbers.</li></ol><p id="f6f0d137-78cf-4e59-b7c0-c659442e97ee" class="">
+</p><p id="1f06cbe5-a0aa-4804-888f-de76ec61c1ca" class="">Stay informed<div class="indented"><ol type="1" id="895c024b-f5a0-4bf1-9345-6d8d91db044f" class="numbered-list" start="1"><li>I know you get a lot of emails and you’re inundated with work. Thank you for reading this far. </li></ol><ol type="1" id="81611f61-cf20-4811-8033-2f162f41e75e" class="numbered-list" start="2"><li>If you have the energy to spare, stop for a second and try to read through some of the extensive resources provided. It took me an hour on their website to gather all the facts I listed above. I urge you to carve out 30ish mins of your day to read about it as well if you can. </li></ol><ol type="1" id="d85a9d82-ef48-465e-87b4-df36fc220b05" class="numbered-list" start="3"><li>If you want to know more, here are some resources:<ol type="a" id="16a4fa27-9c82-489a-a917-5015c117621d" class="numbered-list" start="1"><li><a href="https://www.youarethenewschool.com/">https://www.youarethenewschool.com</a></li></ol><ol type="a" id="a6a8623b-703e-481c-8440-6f3c0842aaff" class="numbered-list" start="2"><li><a href="https://www.instagram.com/act_uaw7902/">https://www.instagram.com/act_uaw7902/</a></li></ol><ol type="a" id="b38edb69-5e09-4812-9d3e-41eb911defca" class="numbered-list" start="3"><li><a href="https://www.instagram.com/studentfacultysolidarity/">https://www.instagram.com/studentfacultysolidarity/</a></li></ol><ol type="a" id="980a9066-0b7d-4645-a274-d87dd1467c3e" class="numbered-list" start="4"><li><a href="https://twitter.com/uaw7902">https://twitter.com/uaw7902</a></li></ol><ol type="a" id="9943b7ab-ddec-4c7b-86ae-4cc993ccd7a7" class="numbered-list" start="5"><li><a href="https://docs.google.com/document/d/1m-8HWt8BMOvIoknXeXn3Sf-Mx5YmmCdreF5sFtyZ1LQ/edit">SFS Factsheet</a></li></ol></li></ol></div></p></div></p><p id="925fc1a0-3daa-499b-af25-f10bfa3a9c2d" class="">
+</p><p id="ca2e0b17-7809-43e3-91f2-44174f41064b" class=""><strong><mark class="highlight-yellow">What can student workers do?</mark></strong></p><p id="06496b3c-6932-4986-a403-39712fdc3e37" class=""><span style="border-bottom:0.05em solid"><strong>SENS members (student employees at The New School) cannot strike while covered by our current contract</strong></span></p><ol type="1" id="1e1052b2-3671-46ee-a2c1-984f802d7481" class="numbered-list" start="1"><li>Sign the <a href="https://docs.google.com/forms/d/e/1FAIpQLScQdsOKJpzRyTz5KkbBNpVSeoErQRQXhu7s5j2zquPDPeF0gA/viewform">pledge</a> refusing to fill in for striking part-time faculty</li></ol><ol type="1" id="924ce559-a4ca-4f45-a5da-a550c06aaa46" class="numbered-list" start="2"><li>Try to move your classes online</li></ol><ol type="1" id="c98c944f-f7c4-4d7e-bb2f-bf05993b51bd" class="numbered-list" start="3"><li>Do not cross the picket line</li></ol><p id="a35752d1-e908-4053-ad75-bfa7c6231e57" class="">
+</p><p id="edcf9f7c-af3b-4368-b147-f8cea60293d1" class="">if you still think that the strike is not necessary, know that this is the part-time faculty’s last resort. The bargaining with the administration has proven to be ineffective with <mark class="highlight-yellow">the</mark><strong><mark class="highlight-yellow"> “final” offer by the university seeking to [</mark></strong><a href="https://www.instagram.com/p/Ckx-ky-OOcN/"><strong><mark class="highlight-yellow">source</mark></strong></a><strong><mark class="highlight-yellow">]:</mark></strong></p><ol type="1" id="5ce79b29-c7f4-4a2e-8f86-bc3c90a4a1b8" class="numbered-list" start="1"><li>2-2.5% annual raises for most faculty when inflation is nearing 9%</li></ol><ol type="1" id="1f268c2e-294b-41e4-985b-92d0b125e4aa" class="numbered-list" start="2"><li>Maintaining pay disparities between studio and lecture/seminar courses</li></ol><ol type="1" id="299711aa-5f11-4b28-b79d-77163f54c3ed" class="numbered-list" start="3"><li>Continuing to drastically underpay Mannes prep faculty, other pre-college faculty, and Continuing Education faculty</li></ol><ol type="1" id="5ddbd3cb-124a-441e-be34-44b8ce2cb638" class="numbered-list" start="4"><li>Tiered health insurance that cuts future private lesson instructors Mannes off from health insurance</li></ol><ol type="1" id="f0e31ad8-f250-48ed-b255-6ef4dbc02453" class="numbered-list" start="5"><li>Higher health insurance premiums &amp; ability to raise out-of-pocket insurance costs at any time</li></ol><p id="76403a24-c780-457a-b60f-432154a5be9f" class="">
+</p><p id="9413fb1c-aa50-4b3c-a7f5-fd7da0d7be7a" class="">P.S. I am not affiliated with ACT-UAW Local 7902, USS or SFS. I am just a student collecting information as I read it. Any mistakes or gaps will be filled slowly and I will try to keep it as updated as possible.</p><p id="c83f1d15-f524-4b2c-8a08-48978cc9348c" class="">
+</p></div></article></body></html>
